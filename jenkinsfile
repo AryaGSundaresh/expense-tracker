@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "aryagsundaresh1/expense-tracker"
-        CONTAINER_NAME = "expense"
+        IMAGE_NAME = "aryagsundaresh1/expense-tracker1"  // new image name
+        CONTAINER_NAME = "expense-new"   // new container name
+        PORT = "8090"
     }
 
     stages {
