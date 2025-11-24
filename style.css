@@ -1,0 +1,326 @@
+/* --- Imports and Variables --- */
+:root {
+    --primary-purple: #5e35b1;
+    --primary-pink: #e91e63;
+    --secondary-gray: #f5f5f5;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --text-muted: #757575;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-gray);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* --- Header Styling --- */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-purple);
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 1em;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* --- Card Base Style --- */
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+/* --- Sidebar (Left Column) --- */
+.sidebar {
+    width: 350px;
+    min-width: 300px; /* Prevent it from getting too small */
+}
+
+/* --- Input Groups --- */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fcfcfc;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #7e57c2;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/* --- Total Spent Card (Gradient) --- */
+.total-card {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-pink) 100%);
+    color: var(--text-light);
+    padding: 30px;
+    margin-top: 15px;
+    box-shadow: 0 8px 16px rgba(94, 53, 177, 0.4);
+}
+
+.total-card h3 {
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.total-amount {
+    font-size: 3em;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+}
+
+.currency-symbol {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-right: 5px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.transaction-count {
+    opacity: 0.8;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+/* --- Category Summary Card --- */
+.category-summary-card {
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eeeeee;
+    font-size: 0.95em;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-name {
+    font-weight: 500;
+}
+
+.category-amount {
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+.no-data {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+}
+
+/* --- Recent Expenses (Right Column) --- */
+.recent-expenses {
+    flex-grow: 1;
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.recent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.recent-header h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.filter-dropdown select {
+    width: auto;
+    min-width: 150px;
+    padding: 8px 12px;
+}
+
+/* --- Expense List Items --- */
+.expense-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    cursor: default;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-item:hover {
+    background-color: #fafafa;
+}
+
+.expense-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-title {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.item-date {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.item-category-tag {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--primary-purple);
+    background-color: #ede7f6; /* Light purple background */
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.item-amount {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1em;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+    opacity: 0; /* Hidden by default */
+}
+
+.expense-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: var(--primary-pink);
+    background-color: #fce4ec;
+}
+
+/* Animation for smooth delete */
+.deleting {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    overflow: hidden;
+    border-bottom: none !important;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic transition */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: auto;
+    }
+}
