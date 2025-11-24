@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: expense
-        image: YOUR_DOCKER_USERNAME/YOUR_IMAGE:latest
+        image: aryagsundaresh1/expense-tracker:latest
         ports:
         - containerPort: 80
