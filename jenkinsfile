@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "aryagsundaresh1/expense-tracker1"  // new image name
+        IMAGE_NAME = "aryagsundaresh1/expense-tracker"
         CONTAINER_NAME = "expense-new"   // new container name
-        PORT = "8090"
+        PORT = "8090"                    // new port
     }
 
     stages {
@@ -32,7 +32,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                echo "No tests — static website"
+                echo "No tests — static site"
                 bat 'docker images'
             }
         }
@@ -42,10 +42,9 @@ pipeline {
                 script {
                     bat 'docker stop %CONTAINER_NAME% || exit 0'
                     bat 'docker rm %CONTAINER_NAME% || exit 0'
-                    bat 'docker run -d -p 8090:80 --name %CONTAINER_NAME% %IMAGE_NAME%:latest'
+                    bat 'docker run -d -p %PORT%:80 --name %CONTAINER_NAME% %IMAGE_NAME%:latest'
                 }
             }
         }
-
     }
 }
